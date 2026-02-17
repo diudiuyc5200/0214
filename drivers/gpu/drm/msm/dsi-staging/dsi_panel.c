@@ -5739,21 +5739,21 @@ int dsi_panel_match_fps_pen_setting(struct dsi_panel *panel,
 
 	priv_info = panel->cur_mode->priv_info;
 
-	if (!priv_info->cmd_sets[DSI_CMD_SET_DISP_PEN_120HZ].count) {
-		pr_debug("DSI_CMD_SET_DISP_PEN_120HZ not defined, return\n");
+	if (!priv_info->cmd_sets[DSI_CMD_SET_DISP_PEN_90HZ].count) {
+		pr_debug("DSI_CMD_SET_DISP_PEN_90HZ not defined, return\n");
 		return 0;
 	}
 
-	/* match fps(120/60/30Hz) pen seeting cmd */
-	if (adj_mode->timing.refresh_rate == 120)
-		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_PEN_120HZ);
+	/* match fps(90/60/30Hz) pen seeting cmd */
+	if (adj_mode->timing.refresh_rate == 90)
+		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_PEN_90HZ);
 	else if (adj_mode->timing.refresh_rate == 60)
 		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_PEN_60HZ);
 	else if (adj_mode->timing.refresh_rate == 30)
 		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_PEN_30HZ);
 
 	if (rc) {
-		pr_err("Failed to send DSI_CMD_SET_DISP_PEN_120HZ command\n");
+		pr_err("Failed to send DSI_CMD_SET_DISP_PEN_90HZ command\n");
 		retval = -EAGAIN;
 		goto error;
 	}else
