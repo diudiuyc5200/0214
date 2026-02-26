@@ -5676,6 +5676,9 @@ int dsi_panel_enable(struct dsi_panel *panel)
 	else
 		panel->panel_initialized = true;
 
+	if (panel->hbm_mode)
+		dsi_panel_apply_hbm_mode(panel);
+	
 	panel->fod_hbm_enabled = false;
 	panel->fod_dimlayer_hbm_enabled = false;
 	panel->in_aod = false;
